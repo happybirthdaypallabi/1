@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Pallabi</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mayamoni</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="bg-hearts"></div>
-
+<!-- HERO -->
 <section class="hero">
   <h1>🎉 শুভ জন্মদিন 🎉</h1>
   <h2>পল্লবী</h2>
-  <h3>আমার মায়ামনি 💗</h3>
-  <p class="sub">আজকের দিনটা শুধু তোমার</p>
+  <h3>আমার মায়ামনি 💖</h3>
 </section>
 
-<section class="gallery">
-  <h2>আমাদের কিছু সুন্দর মুহূর্ত ✨</h2>
-  <div class="images">
-    <img src="images/img1.jpg">
-    <img src="images/img2.jpg">
-    <img src="images/img3.jpg">
+<!-- LIVE TIME -->
+<section class="time-box">
+  <h2>⏰ সময় চলছে</h2>
+  <p id="liveTime"></p>
+</section>
+
+<!-- PHOTO UPLOAD -->
+<section class="photos">
+  <h2>📸 পল্লবীর কিছু মুহূর্ত</h2>
+  <input type="file" accept="image/*" multiple id="photoInput">
+  <div class="photo-gallery" id="gallery"></div>
+</section>
+
+<!-- CAKE -->
+<section class="cake-section" id="cakeSection">
+  <h2>🎂 Happy Birthday Mayamoni 🎂</h2>
+
+  <div class="cake">
+    <div class="candles" id="candles"></div>
+    <div class="cake-top"></div>
+    <div class="cake-middle"></div>
+    <div class="cake-bottom"></div>
   </div>
+
+  <p class="hint">👉 ১৯টা মোমবাতিতে ট্যাপ করো</p>
+  <button id="blowBtn" class="hidden">💨 Blow Candles</button>
+  <button id="cutBtn" class="hidden">🔪 Cut Cake</button>
 </section>
 
-<section class="letter">
+<!-- LETTER -->
+<section class="letter hidden" id="letter">
   <h2>💌 তোমার জন্য একটা চিঠি</h2>
   <div id="letterText"></div>
 </section>
-
-<footer>
-  <p>৩০শে ডিসেম্বর • রাত ১২টা 🌙</p>
-</footer>
-
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
 
 <script src="script.js"></script>
 </body>

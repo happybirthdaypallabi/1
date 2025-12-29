@@ -1,58 +1,85 @@
+/* LIVE TIME FROM 29 DECEMBER */
+const startDate = new Date("2024-12-29T00:00:00");
+
+setInterval(() => {
+  const now = new Date();
+  let diff = Math.floor((now - startDate) / 1000);
+
+  const days = Math.floor(diff / (3600*24));
+  diff %= 3600*24;
+  const hours = Math.floor(diff / 3600);
+  diff %= 3600;
+  const minutes = Math.floor(diff / 60);
+  const seconds = diff % 60;
+
+  document.getElementById("liveTime").innerText =
+    `${days} দিন ${hours} ঘন্টা ${minutes} মিনিট ${seconds} সেকেন্ড`;
+}, 1000);
+
+/* PHOTO UPLOAD */
+const input = document.getElementById("photoInput");
+const gallery = document.getElementById("gallery");
+
+input.addEventListener("change", () => {
+  gallery.innerHTML = "";
+  [...input.files].forEach(file => {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    gallery.appendChild(img);
+  });
+});
+
+/* CANDLES */
+const candlesDiv = document.getElementById("candles");
+let lit = 0;
+for(let i=0;i<19;i++){
+  const c=document.createElement("div");
+  c.className="candle";
+  c.onclick=()=>{
+    if(!c.classList.contains("on")){
+      c.classList.add("on");
+      lit++;
+      if(lit===19){
+        document.getElementById("blowBtn").classList.remove("hidden");
+      }
+    }
+  };
+  candlesDiv.appendChild(c);
+}
+
+document.getElementById("blowBtn").onclick=()=>{
+  document.querySelectorAll(".candle").forEach(c=>c.classList.remove("on"));
+  document.getElementById("cutBtn").classList.remove("hidden");
+};
+
+document.getElementById("cutBtn").onclick=()=>{
+  document.getElementById("cakeSection").classList.add("hidden");
+  document.getElementById("letter").classList.remove("hidden");
+  typeWriter();
+};
+
+/* LETTER */
 const text = `
 পল্লবী,
 
-রাত ঠিক বারোটা।
-এই মুহূর্তে পৃথিবীর অনেক শব্দ থেমে গেছে,
-কিন্তু আমার ভেতরে একটা নাম খুব স্পষ্ট—
-তুমি।
+শুভ জন্মদিন, আমার মায়ামনি 💖
 
-শুভ জন্মদিন, মায়ামনি 💗
+আজকের দিনটা শুধু তোমার।
+এই সময়, এই মুহূর্ত,
+সবটাই তোমার জন্য।
 
-আজকের দিনটা বিশেষ,
-কারণ আজ তুমি জন্মেছিলে।
-আর অজান্তেই একদিন
-আমার জীবনের সবচেয়ে গভীর অনুভূতির জায়গাটা
-তুমি দখল করে নিয়েছিলে।
-
-দূরত্ব আছে— আমি জানি।
-কিন্তু বিশ্বাস করো,
-এই দূরত্ব কখনো আমার অনুভূতিগুলোকে
-তোমার থেকে আলাদা করতে পারেনি।
-
-এক বছরেরও বেশি সময় ধরে
-তুমি আমার অভ্যাস,
-আমার অপেক্ষা,
-আমার শান্তি।
-
-আজ তোমার জন্মদিনে
-আমি শুধু এটুকুই বলি—
-তুমি আমার কাছে আজও
-প্রথম দিনের মতোই গুরুত্বপূর্ণ।
-
-শুভ জন্মদিন, পল্লবী।
-শুভ জন্মদিন, আমার মায়ামনি।
+ভালো থেকো,
+হাসতে থেকো,
+আর জানো—আমি আছি।
 
 — আকাশ
 `;
 
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
+let i=0;
+function typeWriter(){
+  if(i<text.length){
     document.getElementById("letterText").innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, 35);
+    setTimeout(typeWriter,40);
   }
 }
-typeWriter();
-
-/* Hearts */
-function heart() {
-  const h = document.createElement("div");
-  h.className = "heart";
-  h.innerHTML = "💗";
-  h.style.left = Math.random() * 100 + "vw";
-  h.style.fontSize = Math.random() * 20 + 20 + "px";
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 8000);
-}
-setInterval(heart, 500);

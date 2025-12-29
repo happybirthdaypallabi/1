@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Georgia', serif;
+  background: linear-gradient(135deg, #ff5f9e, #7b2ff7);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 20px 70px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  animation: glow 2s infinite alternate;
+}
+
+.hero h2 {
+  font-size: 56px;
+  margin-top: 15px;
+}
+
+.hero h3 {
+  font-size: 34px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.sub {
+  margin-top: 20px;
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+/* GALLERY */
+.gallery {
+  padding: 60px 20px;
+}
+
+.gallery h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.images img {
+  width: 240px;
+  margin: 15px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  transition: transform 0.4s;
+}
+
+.images img:hover {
+  transform: scale(1.08);
+}
+
+/* LETTER */
+.letter {
+  padding: 60px 25px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: left;
+}
+
+.letter h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+#letterText {
+  font-size: 22px;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+/* FOOTER */
+footer {
+  padding: 30px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* GLOW */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+  to {
+    text-shadow: 0 0 25px #ffb3d9;
+  }
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: float 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
